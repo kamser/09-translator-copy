@@ -1,4 +1,4 @@
-import type { State } from "../types/types"
+import type { TranslatorAction, State } from "../types/types"
 import { ACTION_TYPE } from "./actionTypes"
 
 export const initialState: State = {
@@ -9,8 +9,10 @@ export const initialState: State = {
     loading: false
 }
 
-export function reducer(state: State, action){
+export function reducer(state: State, action: TranslatorAction){
     const {type} = action
+
+    console.log(action)
     
     if(type === ACTION_TYPE.INTERCHANGET_LANGUAGES){
         return {
@@ -20,21 +22,21 @@ export function reducer(state: State, action){
         }
     }
 
-    if(type === ACTION_TYPE.SET_FROM_LANGUAGE){
+    else if(type === ACTION_TYPE.SET_FROM_LANGUAGE){
         return {
             ...state,
             fromLanguage: action.payload
         }
     }
 
-    if(type === ACTION_TYPE.SET_TO_LANGUAGE){
+    else if(type === ACTION_TYPE.SET_TO_LANGUAGE){
         return {
             ...state,
             toLanguage: action.payload
         }
     }
 
-    if(type === ACTION_TYPE.SET_FROM_TEXT){
+    else if(type === ACTION_TYPE.SET_FROM_TEXT){
         return {
             ...state,
             loading: true,
@@ -43,7 +45,7 @@ export function reducer(state: State, action){
         }
     }
 
-    if(type === ACTION_TYPE.SET_RESULT){
+    else if(type === ACTION_TYPE.SET_RESULT){
         return {
             ...state,
             loading: false,
