@@ -7,7 +7,7 @@ export const initialState = {
     loading: false
 }
 
-export function reducer(state, action){
+export function reducer(state: typeof initialState, action){
     const {type} = action
     
     if(type === ACTION_TYPE.INTERCHANGET_LANGUAGES){
