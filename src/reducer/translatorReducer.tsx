@@ -36,7 +36,8 @@ export function reducer(state, action){
         return {
             ...state,
             loading: true,
-            fromText : action.payload
+            fromText : action.payload,
+            result: ''
         }
     }
 
