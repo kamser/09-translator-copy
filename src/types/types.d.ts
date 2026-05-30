@@ -1,4 +1,7 @@
+import type { SUPPORTED_LANGUAGES } from '../constants.ts';
 import { ACTION_TYPE } from '../reducer/actionTypes.ts';
+
+export type Language = keyof typeof SUPPORTED_LANGUAGES
 
 export interface State {
     fromLanguage: string
