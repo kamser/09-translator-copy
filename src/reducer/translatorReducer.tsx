@@ -1,6 +1,7 @@
 import type { State } from "../types/types"
 import { ACTION_TYPE } from "./actionTypes"
-export const initialState = {
+
+export const initialState: State = {
     fromLanguage: 'auto',
     toLanguage: 'en',
     fromText: '',
