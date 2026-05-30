@@ -32,10 +32,17 @@ export function reducer(state, action){
         }
     }
 
-    if(type === ACTION_TYPE.SET_TO_LANGUAGE){
+    if(type === ACTION_TYPE.SET_FROM_TEXT){
         return {
             ...state,
-            toLanguage: action.payload
+            fromText : action.payload
+        }
+    }
+
+    if(type === ACTION_TYPE.SET_RESULT){
+        return {
+            ...state,
+            result : action.payload
         }
     }
 
