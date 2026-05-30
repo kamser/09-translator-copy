@@ -1,3 +1,4 @@
+import type { State } from "../types/types"
 import { ACTION_TYPE } from "./actionTypes"
 export const initialState = {
     fromLanguage: 'auto',
@@ -7,7 +8,7 @@ export const initialState = {
     loading: false
 }
 
-export function reducer(state: typeof initialState, action){
+export function reducer(state: State, action){
     const {type} = action
     
     if(type === ACTION_TYPE.INTERCHANGET_LANGUAGES){
