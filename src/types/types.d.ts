@@ -6,7 +6,7 @@ export type AutoLanguage = typeof AUTO_LANGUAGE
 export type FromLanguage = Language | AutoLanguage
 
 export interface State {
-    fromLanguage: string
+    fromLanguage: FromLanguage
     toLanguage: string
     fromText: string
     result: string

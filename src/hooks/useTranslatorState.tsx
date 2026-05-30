@@ -1,6 +1,7 @@
 import { useReducer } from 'react'
 import { initialState, reducer } from '../reducer/translatorReducer.tsx'
 import { ACTION_TYPE } from '../reducer/actionTypes'
+import type { FromLanguage } from '../types/types'
 
 export function useTranslatorState(){
     const [{
@@ -15,7 +16,7 @@ export function useTranslatorState(){
         dispatch({type: ACTION_TYPE.INTERCHANGET_LANGUAGES})
     }
 
-    const setFromLanguage = (selectedLanguage: string): void =>{
+    const setFromLanguage = (selectedLanguage: FromLanguage): void =>{
         dispatch({type: ACTION_TYPE.SET_FROM_LANGUAGE, payload: selectedLanguage})
     }
 
