@@ -1,3 +1,4 @@
+import { AUTO_LANGUAGE } from "../constants"
 import type { TranslatorAction, State } from "../types/types"
 import { ACTION_TYPE } from "./actionTypes"
 
@@ -13,6 +14,7 @@ export function reducer(state: State, action: TranslatorAction){
     const {type} = action
     
     if(type === ACTION_TYPE.INTERCHANGET_LANGUAGES){
+        if(state.fromLanguage == AUTO_LANGUAGE) return state
         return {
             ...state,
             fromLanguage: state.toLanguage,
