@@ -11,8 +11,6 @@ export const initialState: State = {
 
 export function reducer(state: State, action: TranslatorAction){
     const {type} = action
-
-    console.log(action)
     
     if(type === ACTION_TYPE.INTERCHANGET_LANGUAGES){
         return {
