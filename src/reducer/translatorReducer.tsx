@@ -35,6 +35,7 @@ export function reducer(state, action){
     if(type === ACTION_TYPE.SET_FROM_TEXT){
         return {
             ...state,
+            loading: true,
             fromText : action.payload
         }
     }
@@ -42,6 +43,7 @@ export function reducer(state, action){
     if(type === ACTION_TYPE.SET_RESULT){
         return {
             ...state,
+            loading: false,
             result : action.payload
         }
     }
