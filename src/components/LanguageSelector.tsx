@@ -1,7 +1,11 @@
 import { Form } from "react-bootstrap"
 import { SUPPORTED_LANGUAGES } from "../constants"
 
-export function LanguageSelector({onChange}:{onChange: (language: string) => void}){
+interface Props {
+    onChange: (lnaguage: string) => void
+}
+
+export function LanguageSelector({onChange}: Props){
     
     const handleOnChange = (event) => {
         const selectedOption = event.target.value
