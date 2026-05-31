@@ -5,15 +5,17 @@ import './App.css'
 import { useTranslatorState } from './hooks/useTranslatorState.tsx'
 import { AUTO_LANGUAGE } from './constants.ts'
 import { ArrowIcon } from './components/icons.tsx'
+import { LanguageSelector } from './components/LanguageSelector';
 
 function App() {
-  const {fromLanguage, toLanguage, interchangeLanguage, setFromLanguage} = useTranslatorState()
+  const {fromLanguage, toLanguage, interchangeLanguage, setFromLanguage, setToLanguage} = useTranslatorState()
   return (
     <Container fluid>
       <h1>Best Translator</h1>
       <Row>
         <Col>
           <h2>From</h2>
+          <LanguageSelector onChange={setFromLanguage} />
           {fromLanguage}
         </Col>
         <Col>
@@ -23,6 +25,7 @@ function App() {
         </Col>
         <Col>
           <h2>To</h2>
+          <LanguageSelector onChange={setToLanguage} />
           {toLanguage}
         </Col>
       </Row>
