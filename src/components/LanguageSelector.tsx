@@ -8,7 +8,7 @@ interface Props {
 
 export const  LanguageSelector: FC<Props> = ({onChange}) => {
     
-    const handleOnChange = (event) => {
+    const handleOnChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedOption = event.target.value
         onChange(selectedOption)
     }
