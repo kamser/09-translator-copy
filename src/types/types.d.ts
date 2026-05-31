@@ -19,3 +19,9 @@ export type TranslatorAction =
     | {type: ACTION_TYPE.SET_TO_LANGUAGE, payload: string}
     | {type: ACTION_TYPE.SET_FROM_TEXT, payload: string}
     | {type: ACTION_TYPE.SET_RESULT, payload: string}
+
+
+export enum SectionType{
+    From = 'from',
+    To = 'to'
+}
