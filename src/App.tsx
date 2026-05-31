@@ -6,6 +6,7 @@ import { useTranslatorState } from './hooks/useTranslatorState.tsx'
 import { AUTO_LANGUAGE } from './constants.ts'
 import { ArrowIcon } from './components/icons.tsx'
 import { LanguageSelector } from './components/LanguageSelector';
+import { SectionType } from './types/types'
 
 function App() {
   const {fromLanguage, toLanguage, interchangeLanguage, setFromLanguage, setToLanguage} = useTranslatorState()
@@ -16,7 +17,7 @@ function App() {
         <Col>
           <h2>From</h2>
           <LanguageSelector 
-            type='from' 
+            type={SectionType.From} 
             onChange={setFromLanguage}
             value={fromLanguage} />
           {fromLanguage}
@@ -29,7 +30,7 @@ function App() {
         <Col>
           <h2>To</h2>
           <LanguageSelector 
-            type='to' 
+            type={SectionType.To} 
             onChange={setToLanguage}
             value={toLanguage} />
           {toLanguage}
