@@ -1,9 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import './App.css'
 
 import { useTranslatorState } from './hooks/useTranslatorState.tsx'
 import { AUTO_LANGUAGE } from './constants.ts'
+import { ArrowIcon } from './components/icons.tsx'
 
 function App() {
   const {fromLanguage, toLanguage, interchangeLanguage, setFromLanguage} = useTranslatorState()
@@ -16,9 +17,9 @@ function App() {
           {fromLanguage}
         </Col>
         <Col>
-          <button disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguage}>
-            Interchange
-          </button>
+          <Button disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguage}>
+            <ArrowIcon/>
+          </Button>
         </Col>
         <Col>
           <h2>To</h2>
