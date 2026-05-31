@@ -15,7 +15,10 @@ function App() {
       <Row>
         <Col>
           <h2>From</h2>
-          <LanguageSelector onChange={setFromLanguage} />
+          <LanguageSelector 
+            type='from' 
+            onChange={setFromLanguage}
+            value={fromLanguage} />
           {fromLanguage}
         </Col>
         <Col>
@@ -25,7 +28,10 @@ function App() {
         </Col>
         <Col>
           <h2>To</h2>
-          <LanguageSelector onChange={setToLanguage} />
+          <LanguageSelector 
+            type='to' 
+            onChange={setToLanguage}
+            value={toLanguage} />
           {toLanguage}
         </Col>
       </Row>
