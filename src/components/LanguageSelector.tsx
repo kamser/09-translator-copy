@@ -1,7 +1,7 @@
 import { Form } from "react-bootstrap"
 import { SUPPORTED_LANGUAGES } from "../constants"
 
-export function LanguageSelector({onChange}){
+export function LanguageSelector({onChange}:{onChange: (language: string) => void}){
     
     const handleOnChange = (event) => {
         const selectedOption = event.target.value
