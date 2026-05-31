@@ -1,5 +1,5 @@
 import type { AUTO_LANGUAGE, SUPPORTED_LANGUAGES } from '../constants.ts';
-import { ACTION_TYPE } from '../reducer/actionTypes.ts';
+import { ACTION_TYPE } from '../reducer/actionTypes.tsx';
 
 export type Language = keyof typeof SUPPORTED_LANGUAGES
 export type AutoLanguage = typeof AUTO_LANGUAGE

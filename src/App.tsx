@@ -6,11 +6,20 @@ import { useTranslatorState } from './hooks/useTranslatorState.tsx'
 import { AUTO_LANGUAGE } from './constants.ts'
 import { ArrowIcon } from './components/icons.tsx'
 import { LanguageSelector } from './components/LanguageSelector';
-import { SectionType } from './types/types'
+import { SectionType} from './types/types.d.ts'
 import { TextArea } from './components/TextArea.tsx'
 
 function App() {
-  const {fromLanguage, toLanguage, interchangeLanguage, setFromLanguage, setToLanguage} = useTranslatorState()
+  const {fromLanguage,
+        toLanguage,
+        fromText,
+        result,
+        loading,
+        interchangeLanguage,
+        setFromLanguage,
+        setToLanguage,
+        setFromText,
+        setResult} = useTranslatorState()
   return (
     <Container fluid>
       <h2>Best Translator</h2>
@@ -21,7 +30,12 @@ function App() {
             onChange={setFromLanguage}
             value={fromLanguage} />
 
-          <TextArea/>
+          <TextArea
+            type={SectionType.From}
+            placeholder='Introducir texto...'
+            onChange={setFromText}
+            value={fromText}
+          />
         </Col>
         <Col>
           <Button variant='link' disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguage}>
@@ -33,7 +47,13 @@ function App() {
             type={SectionType.To} 
             onChange={setToLanguage}
             value={toLanguage} />
-          <TextArea/>
+          <TextArea
+            type={SectionType.To}
+            loading={loading}
+            placeholder='Esperando Texto...'
+            onChange={setResult}
+            value={result}
+          />
         </Col>
       </Row>
     </Container>
