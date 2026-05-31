@@ -1,5 +1,5 @@
 import { Form } from "react-bootstrap"
-import { SUPPORTED_LANGUAGES } from "../constants"
+import { SUPPORTED_LANGUAGES, AUTO_LANGUAGE } from '../constants';
 import type { FC } from "react"
 import type { FromLanguage, Language } from "../types/types"
 
@@ -11,14 +11,12 @@ export const  LanguageSelector: FC<Props> = ({type, value, onChange}) => {
     
     const handleOnChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedOption = event.target.value
-        if(type === 'from'){
-            onChange(selectedOption as FromLanguage)
-        } else {
-            onChange(selectedOption as Language)
-        }
+        onChange(selectedOption as Language)
     }
     return(
         <Form.Select aria-label="Select the language" onChange={handleOnChange} value={value}>
+            {type === 'from' && <option value={AUTO_LANGUAGE}>Detectar idioma</option>}
+            
             {
                 Object.entries(SUPPORTED_LANGUAGES).map( ([key, value]) => (
                     <option key={key} value={key}>
