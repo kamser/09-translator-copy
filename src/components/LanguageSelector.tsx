@@ -1,11 +1,12 @@
 import { Form } from "react-bootstrap"
 import { SUPPORTED_LANGUAGES } from "../constants"
+import type { FC } from "react"
 
 interface Props {
-    onChange: (lnaguage: string) => void
+    onChange: (language: string) => void
 }
 
-export function LanguageSelector({onChange}: Props){
+export const  LanguageSelector: FC<Props> = ({onChange}) => {
     
     const handleOnChange = (event) => {
         const selectedOption = event.target.value
