@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import './App.css'
 
 import { useTranslatorState } from './hooks/useTranslatorState.tsx'
+import { AUTO_LANGUAGE } from './constants.ts'
 
 function App() {
   const {fromLanguage, toLanguage, interchangeLanguage, setFromLanguage} = useTranslatorState()
@@ -15,7 +16,7 @@ function App() {
           {fromLanguage}
         </Col>
         <Col>
-          <button onClick={interchangeLanguage}>
+          <button disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguage}>
             Interchange
           </button>
         </Col>
