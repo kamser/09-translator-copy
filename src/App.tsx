@@ -7,20 +7,21 @@ import { AUTO_LANGUAGE } from './constants.ts'
 import { ArrowIcon } from './components/icons.tsx'
 import { LanguageSelector } from './components/LanguageSelector';
 import { SectionType } from './types/types'
+import { TextArea } from './components/TextArea.tsx'
 
 function App() {
   const {fromLanguage, toLanguage, interchangeLanguage, setFromLanguage, setToLanguage} = useTranslatorState()
   return (
     <Container fluid>
-      <h1>Best Translator</h1>
+      <h2>Best Translator</h2>
       <Row>
         <Col>
-          <h2>From</h2>
           <LanguageSelector 
             type={SectionType.From} 
             onChange={setFromLanguage}
             value={fromLanguage} />
-          {fromLanguage}
+
+          <TextArea/>
         </Col>
         <Col>
           <Button variant='link' disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguage}>
@@ -28,12 +29,11 @@ function App() {
           </Button>
         </Col>
         <Col>
-          <h2>To</h2>
           <LanguageSelector 
             type={SectionType.To} 
             onChange={setToLanguage}
             value={toLanguage} />
-          {toLanguage}
+          <TextArea/>
         </Col>
       </Row>
     </Container>
