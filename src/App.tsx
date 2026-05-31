@@ -17,7 +17,7 @@ function App() {
           {fromLanguage}
         </Col>
         <Col>
-          <Button disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguage}>
+          <Button variant='link' disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguage}>
             <ArrowIcon/>
           </Button>
         </Col>
