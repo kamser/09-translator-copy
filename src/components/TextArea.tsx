@@ -4,7 +4,6 @@ import { SectionType} from '../types/types.d.ts'
 
 interface Props {
     type: SectionType
-    placeholder: string
     loading?: boolean
     onChange: (value: string) => void
     value: string
@@ -12,7 +11,13 @@ interface Props {
 
 const commonStyles = {border: 0, height: '200px'}
 
-export function TextArea({type, placeholder, loading, value, onChange}: Props){
+const getPlaceholder = ({type, loading}: {type: SectionType, loading?: boolean}):string => {
+    if(type === SectionType.From) return 'Type some text'
+    if(loading) return "Loading..."
+    return "Translate"
+}
+
+export function TextArea({type, loading, value, onChange}: Props){
 
     const styles = type === SectionType.From
                     ? commonStyles
@@ -21,8 +26,9 @@ export function TextArea({type, placeholder, loading, value, onChange}: Props){
         <Form.Control
             autoFocus={type === SectionType.From}
             as='textarea'
-            placeholder={placeholder}
+            placeholder={getPlaceholder({type, loading})}
             style={styles}
+            value={value}
         >
 
         </Form.Control>

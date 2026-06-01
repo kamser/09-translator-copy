@@ -33,7 +33,6 @@ function App() {
 
             <TextArea
               type={SectionType.From}
-              placeholder='Introducir texto...'
               onChange={setFromText}
               value={fromText}
             />
@@ -53,7 +52,6 @@ function App() {
             <TextArea
               type={SectionType.To}
               loading={loading}
-              placeholder='Esperando Texto...'
               onChange={setResult}
               value={result}
             />
