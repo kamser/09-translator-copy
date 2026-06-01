@@ -22,7 +22,7 @@ export function TextArea({type, placeholder, loading, value, onChange}: Props){
             autoFocus={type === SectionType.From}
             as='textarea'
             placeholder={placeholder}
-            style={{height: '150px'}}
+            style={styles}
         >
 
         </Form.Control>
