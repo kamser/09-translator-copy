@@ -37,6 +37,7 @@ export function reducer(state: State, action: TranslatorAction){
     }
 
     else if(type === ACTION_TYPE.SET_FROM_TEXT){
+        const loading = action.payload !== ''
         return {
             ...state,
             loading: true,
