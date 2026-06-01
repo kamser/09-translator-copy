@@ -47,4 +47,20 @@ export async function translate({
       content: 'Buenos días, ¿cómo estás?'
     }
     ]
+
+    const fromCode = fromLanguage === 'auto' ? 'auto' : SUPPORTED_LANGUAGES[fromLanguage]
+    const toCode = SUPPORTED_LANGUAGES[toLanguage]
+
+    const completion = await openai.createChatCompletion({
+        model: 'GPT-4o mini',
+        messages: [
+        ...messages,
+        {
+            role: ChatCompletionRequestMessageRoleEnum.User,
+            content: `${text} {{${fromCode}}} [[${toCode}]]`
+        }
+        ]
+    })
+
+    return completion.data.choices[0]?.message?.content
 }
