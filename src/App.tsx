@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col, Button, Stack } from 'react-bootstrap'
 import './App.css'
 
 import { useTranslatorState } from './hooks/useTranslatorState.tsx'
@@ -25,17 +25,19 @@ function App() {
       <h2>Best Translator</h2>
       <Row>
         <Col>
-          <LanguageSelector 
+          <Stack gap={2}>
+            <LanguageSelector 
             type={SectionType.From} 
             onChange={setFromLanguage}
             value={fromLanguage} />
 
-          <TextArea
-            type={SectionType.From}
-            placeholder='Introducir texto...'
-            onChange={setFromText}
-            value={fromText}
-          />
+            <TextArea
+              type={SectionType.From}
+              placeholder='Introducir texto...'
+              onChange={setFromText}
+              value={fromText}
+            />
+          </Stack>
         </Col>
         <Col>
           <Button variant='link' disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguage}>
@@ -43,17 +45,19 @@ function App() {
           </Button>
         </Col>
         <Col>
-          <LanguageSelector 
-            type={SectionType.To} 
-            onChange={setToLanguage}
-            value={toLanguage} />
-          <TextArea
-            type={SectionType.To}
-            loading={loading}
-            placeholder='Esperando Texto...'
-            onChange={setResult}
-            value={result}
-          />
+          <Stack gap={2}>
+            <LanguageSelector 
+              type={SectionType.To} 
+              onChange={setToLanguage}
+              value={toLanguage} />
+            <TextArea
+              type={SectionType.To}
+              loading={loading}
+              placeholder='Esperando Texto...'
+              onChange={setResult}
+              value={result}
+            />
+          </Stack>
         </Col>
       </Row>
     </Container>
