@@ -10,7 +10,13 @@ interface Props {
     value: string
 }
 
+const commonStyles = {border: 0, height: '200px'}
+
 export function TextArea({type, placeholder, loading, value, onChange}: Props){
+
+    const styles = type === SectionType.From
+                    ? commonStyles
+                    : {...commonStyles, backgroundColor: '#f5f5f5'}
     return(
         <Form.Control
             autoFocus={type === SectionType.From}
