@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, Button, Stack } from 'react-bootstrap'
 import './App.css'
@@ -8,8 +9,10 @@ import { ArrowIcon } from './components/icons.tsx'
 import { LanguageSelector } from './components/LanguageSelector';
 import { SectionType} from './types/types.d.ts'
 import { TextArea } from './components/TextArea.tsx'
+import { translate } from './services/translate.ts'
 
 function App() {
+
   const {fromLanguage,
         toLanguage,
         fromText,
@@ -20,6 +23,20 @@ function App() {
         setToLanguage,
         setFromText,
         setResult} = useTranslatorState()
+
+
+  useEffect(() => {
+    if (fromText === '') return
+
+    translate({ fromLanguage, toLanguage, text: fromText })
+      .then(result => {
+        if (result == null) return
+        setResult(result)
+      })
+      .catch(() => { setResult('Error') })
+  }, [fromText, fromLanguage, toLanguage])
+
+  
   return (
     <Container fluid>
       <h2>Best Translator</h2>
