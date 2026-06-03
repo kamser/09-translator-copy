@@ -15,10 +15,14 @@ export function reducer(state: State, action: TranslatorAction): State{
     
     if(type === ACTION_TYPE.INTERCHANGET_LANGUAGES){
         if(state.fromLanguage == AUTO_LANGUAGE) return state
+        const loading = state.fromText !== ''
+        const result = ''
         return {
             ...state,
             fromLanguage: state.toLanguage,
-            toLanguage: state.fromLanguage
+            toLanguage: state.fromLanguage,
+            loading,
+            result
         }
     }
 
