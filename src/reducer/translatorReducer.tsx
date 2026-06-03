@@ -23,15 +23,20 @@ export function reducer(state: State, action: TranslatorAction): State{
     }
 
     else if(type === ACTION_TYPE.SET_FROM_LANGUAGE){
+        if(state.fromLanguage === action.payload) return state
+        const loading = state.fromText !== ''
+        const result = ''
         return {
             ...state,
-            fromLanguage: action.payload
+            fromLanguage: action.payload,
+            loading,
+            result
         }
     }
 
     else if(type === ACTION_TYPE.SET_TO_LANGUAGE){
         if(state.toLanguage === action.payload) return state
-        const loading = true
+        const loading = state.fromText !== ''
         const result = ''
         return {
             ...state,
