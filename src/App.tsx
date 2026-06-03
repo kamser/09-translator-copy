@@ -10,6 +10,7 @@ import { LanguageSelector } from './components/LanguageSelector';
 import { SectionType} from './types/types.d.ts'
 import { TextArea } from './components/TextArea.tsx'
 import { translate } from './services/translate.ts'
+import { useDebounce } from './hooks/useDebounce.ts'
 
 function App() {
 
@@ -24,17 +25,19 @@ function App() {
         setFromText,
         setResult} = useTranslatorState()
 
+  const fromTextDebounced = useDebounce(fromText)
+
 
   useEffect(() => {
     if (fromText === '') return
 
-    translate({ fromLanguage, toLanguage, text: fromText })
+    translate({ fromLanguage, toLanguage, text: fromTextDebounced })
       .then(result => {
         if (result == null) return
         setResult(result)
       })
       .catch(() => { setResult('Error') })
-  }, [fromText, fromLanguage, toLanguage])
+  }, [fromTextDebounced, fromLanguage, toLanguage])
 
   
   return (
