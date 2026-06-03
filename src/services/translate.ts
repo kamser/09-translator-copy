@@ -11,9 +11,6 @@ const client = new OpenAI({
   dangerouslyAllowBrowser: true
 });
 
-//"hello mom"
-
-
 export async function translate({
     fromLanguage,
     toLanguage,

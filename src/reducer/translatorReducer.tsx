@@ -10,7 +10,7 @@ export const initialState: State = {
     loading: false
 }
 
-export function reducer(state: State, action: TranslatorAction){
+export function reducer(state: State, action: TranslatorAction): State{
     const {type} = action
     
     if(type === ACTION_TYPE.INTERCHANGET_LANGUAGES){
@@ -30,9 +30,14 @@ export function reducer(state: State, action: TranslatorAction){
     }
 
     else if(type === ACTION_TYPE.SET_TO_LANGUAGE){
+        if(state.toLanguage === action.payload) return state
+        const loading = true
+        const result = ''
         return {
             ...state,
-            toLanguage: action.payload
+            toLanguage: action.payload,
+            loading,
+            result
         }
     }
 
