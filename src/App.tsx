@@ -39,6 +39,11 @@ function App() {
       .catch(() => { setResult('Error') })
   }, [fromTextDebounced, fromLanguage, toLanguage])
 
+
+  const handleCopyAndPaste = () => {
+    navigator.clipboard.writeText(result).catch(() => {})
+  }
+
   
   return (
     <Container fluid>
@@ -80,7 +85,7 @@ function App() {
               <Button
                 variant='link'
                 style={{position : 'absolute', left: 0, bottom: 0 }}
-                onClick={() => {}}>
+                onClick={handleCopyAndPaste}>
                   <CopyAndPasteIcon/>
               </Button>
               
