@@ -4,8 +4,8 @@ import { Container, Row, Col, Button, Stack } from 'react-bootstrap'
 import './App.css'
 
 import { useTranslatorState } from './hooks/useTranslatorState.tsx'
-import { AUTO_LANGUAGE, VOICE_FOR_LANGUAGE } from './constants.ts'
-import { ArrowIcon, CopyAndPasteIcon, SpeakerIcon } from './components/icons.tsx'
+import { AUTO_LANGUAGE } from './constants.ts'
+import { ArrowIcon, CopyAndPasteIcon } from './components/icons.tsx'
 import { LanguageSelector } from './components/LanguageSelector';
 import { SectionType} from './types/types.d.ts'
 import { TextArea } from './components/TextArea.tsx'
@@ -42,12 +42,6 @@ function App() {
 
   const handleCopyAndPaste = () => {
     navigator.clipboard.writeText(result).catch(() => {})
-  }
-
-  const handleSpeaker = () => {
-    const utterance = new SpeechSynthesisUtterance(result)
-    utterance.lang = VOICE_FOR_LANGUAGE[toLanguage]
-    speechSynthesis.speak(utterance) 
   }
 
   
@@ -88,18 +82,12 @@ function App() {
                 onChange={setResult}
                 value={result}
               />
-              <div style={{position : 'absolute', left: 0, bottom: 0, display: 'flex'}}>
-                <Button
+              <Button
                 variant='link'
+                style={{position : 'absolute', left: 0, bottom: 0 }}
                 onClick={handleCopyAndPaste}>
                   <CopyAndPasteIcon/>
-                </Button>
-                <Button
-                  variant='link'
-                  onClick={handleSpeaker}>
-                    <SpeakerIcon/>
-                </Button>
-              </div>
+              </Button>
               
             </div>
           </Stack>
