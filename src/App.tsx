@@ -4,7 +4,7 @@ import { Container, Row, Col, Button, Stack } from 'react-bootstrap'
 import './App.css'
 
 import { useTranslatorState } from './hooks/useTranslatorState.tsx'
-import { AUTO_LANGUAGE } from './constants.ts'
+import { AUTO_LANGUAGE, VOICE_FOR_LANGUAGE } from './constants.ts'
 import { ArrowIcon, CopyAndPasteIcon, SpeakerIcon } from './components/icons.tsx'
 import { LanguageSelector } from './components/LanguageSelector';
 import { SectionType} from './types/types.d.ts'
@@ -46,7 +46,7 @@ function App() {
 
   const handleSpeaker = () => {
     const utterance = new SpeechSynthesisUtterance(result)
-    utterance.lang = 'es-MX'
+    utterance.lang = VOICE_FOR_LANGUAGE[toLanguage]
     speechSynthesis.speak(utterance) 
   }
 
