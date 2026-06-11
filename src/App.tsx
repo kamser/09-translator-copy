@@ -29,7 +29,7 @@ function App() {
 
 
   useEffect(() => {
-    if (fromText === '') return
+    if (fromTextDebounced === '') return
 
     translate({ fromLanguage, toLanguage, text: fromTextDebounced })
       .then(result => {
