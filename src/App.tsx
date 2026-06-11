@@ -5,7 +5,7 @@ import './App.css'
 
 import { useTranslatorState } from './hooks/useTranslatorState.tsx'
 import { AUTO_LANGUAGE } from './constants.ts'
-import { ArrowIcon, CopyAndPasteIcon } from './components/icons.tsx'
+import { ArrowIcon, CopyAndPasteIcon, SpeakerIcon } from './components/icons.tsx'
 import { LanguageSelector } from './components/LanguageSelector';
 import { SectionType} from './types/types.d.ts'
 import { TextArea } from './components/TextArea.tsx'
@@ -82,12 +82,18 @@ function App() {
                 onChange={setResult}
                 value={result}
               />
-              <Button
+              <div style={{position : 'absolute', left: 0, bottom: 0, display: 'flex'}}>
+                <Button
                 variant='link'
-                style={{position : 'absolute', left: 0, bottom: 0 }}
                 onClick={handleCopyAndPaste}>
                   <CopyAndPasteIcon/>
-              </Button>
+                </Button>
+                <Button
+                  variant='link'
+                  onClick={handleCopyAndPaste}>
+                    <SpeakerIcon/>
+                </Button>
+              </div>
               
             </div>
           </Stack>
