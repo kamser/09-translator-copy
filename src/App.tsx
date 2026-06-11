@@ -5,7 +5,7 @@ import './App.css'
 
 import { useTranslatorState } from './hooks/useTranslatorState.tsx'
 import { AUTO_LANGUAGE } from './constants.ts'
-import { ArrowIcon } from './components/icons.tsx'
+import { ArrowIcon, CopyAndPasteIcon } from './components/icons.tsx'
 import { LanguageSelector } from './components/LanguageSelector';
 import { SectionType} from './types/types.d.ts'
 import { TextArea } from './components/TextArea.tsx'
@@ -69,12 +69,22 @@ function App() {
               type={SectionType.To} 
               onChange={setToLanguage}
               value={toLanguage} />
-            <TextArea
-              type={SectionType.To}
-              loading={loading}
-              onChange={setResult}
-              value={result}
-            />
+            <div 
+              style={{position : 'relative'}}>
+              <TextArea
+                type={SectionType.To}
+                loading={loading}
+                onChange={setResult}
+                value={result}
+              />
+              <Button
+                variant='link'
+                style={{position : 'absolute', left: 0, bottom: 0 }}
+                onClick={() => {}}>
+                  <CopyAndPasteIcon/>
+              </Button>
+              
+            </div>
           </Stack>
         </Col>
       </Row>
