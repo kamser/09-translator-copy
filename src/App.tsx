@@ -44,6 +44,12 @@ function App() {
     navigator.clipboard.writeText(result).catch(() => {})
   }
 
+  const handleSpeaker = () => {
+    const utterance = new SpeechSynthesisUtterance(result)
+    utterance.lang = 'es-MX'
+    speechSynthesis.speak(utterance) 
+  }
+
   
   return (
     <Container fluid>
@@ -90,7 +96,7 @@ function App() {
                 </Button>
                 <Button
                   variant='link'
-                  onClick={handleCopyAndPaste}>
+                  onClick={handleSpeaker}>
                     <SpeakerIcon/>
                 </Button>
               </div>
